@@ -4,6 +4,8 @@ phases:
   install:
     commands:
       - npm install
+      - git pull
+      - git log -1 --format="%at" | xargs -I{} date -d @{} +%Y/%m/%d_%H:%M:%S
   build:
     commands:
       - npm test
